@@ -1,5 +1,5 @@
 // Pevné údaje webu: projekt, o projekte, tím, zápisnice. Šprinty, technológie a dokumenty
-// sa sťahujú z docs/site.json v repozitári appky (pozri lib/remote.ts). TODO = zatiaľ neznáme.
+// sa sťahujú z docs/site.json v repozitári appky (pozri app/page.tsx). TODO = zatiaľ neznáme.
 export const project = {
   season: "2026/27",
   team: "SATS-SEO-GIS",
