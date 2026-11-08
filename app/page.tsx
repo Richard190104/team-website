@@ -1,14 +1,31 @@
+"use client";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Contours from "@/components/Contours";
 import { ArrowIcon, DataIcon, MapIcon, OfflineIcon } from "@/components/Icons";
 import Docs from "@/components/Docs";
-import { about, documents, members, minutes, project, sprints, stats, tech } from "@/lib/data";
+import { about, members, minutes, project } from "@/lib/data";
+import fallback from "@/data/site.json";
+
+// Obsah z repa appky (šprinty, technológie, dokumenty). Ak fetch nepôjde, ostane lokálna záloha.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_DATA_URL || "https://raw.githubusercontent.com/team-17-fiit/sats-seo-gis/main/docs/site.json";
 
 const icons = [MapIcon, OfflineIcon, DataIcon];
 const initials = (n: string) => n.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
 
 export default function Home() {
+  const [site, setSite] = useState(fallback);
+  useEffect(() => {
+    fetch(SITE_URL).then((r) => r.json()).then((j) => j.tech && j.documents && j.sprints && setSite(j)).catch(() => {});
+  }, []);
+  const { tech, documents, sprints } = site;
+  const nSp = sprints.length;
+  const stats = [
+    [String(members.length), "členov tímu"],
+    [String(nSp), nSp === 1 ? "šprint" : nSp < 5 ? "šprinty" : "šprintov"],
+    [String(sprints.reduce((a, s) => a + s.total, 0)), "úloh v šprintoch"],
+  ];
   return (
     <>
       <Header team={project.team} season={project.season} />
