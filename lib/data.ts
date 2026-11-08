@@ -31,11 +31,14 @@ export const tech = [
 ];
 
 const repo = "https://github.com/Matus17/sats-seo-gis/tree/main/docs";
+export const minutes = [
+  { title: "Zápisnica 3. 11. 2026", text: "Zmena v tíme, retrospektíva 1. šprintu, demo stránky (Lighthouse 100/100/100)", href: "/zapisnice/zapisnica_3_11_2026.docx" },
+  { title: "Zápisnica 27. 10. 2026", text: "Založenie GitHubu, Plane, plánovanie 2. šprintu", href: "/zapisnice/zapisnica_27_10_2026.docx" },
+  { title: "Zápisnica 20. 10. 2026", text: "Výber technológií (React, Next.js), use case diagramy", href: "/zapisnice/zapisnica_20_10_2026.docx" },
+  { title: "Zápisnica 12. 10. 2026", text: "Predstavenie zadania, rozdelenie rolí, plánovanie 1. šprintu", href: "/zapisnice/zapisnica_12_10_2026.docx" },
+];
+
 export const documents = [
-  { title: "Zápisnica 3. 11. 2026", text: "Zmena v tíme, retrospektíva 1. šprintu, demo stránky (Lighthouse 100/100/100)", type: "DOCX", href: "/zapisnice/zapisnica_3_11_2026.docx" },
-  { title: "Zápisnica 27. 10. 2026", text: "Založenie GitHubu, Plane, plánovanie 2. šprintu", type: "DOCX", href: "/zapisnice/zapisnica_27_10_2026.docx" },
-  { title: "Zápisnica 20. 10. 2026", text: "Výber technológií (React, Next.js), use case diagramy", type: "DOCX", href: "/zapisnice/zapisnica_20_10_2026.docx" },
-  { title: "Zápisnica 12. 10. 2026", text: "Predstavenie zadania, rozdelenie rolí, plánovanie 1. šprintu", type: "DOCX", href: "/zapisnice/zapisnica_12_10_2026.docx" },
   { title: "Metodiky", text: "Definition of Done, code review, testovanie, komunikácia", type: "GitHub", href: `${repo}/methodology` },
   { title: "Architektúra", text: "Cieľová architektúra systému", type: "GitHub", href: `${repo}/architecture` },
   { title: "Rozhodnutia (ADR)", text: "Záznamy architektonických rozhodnutí", type: "GitHub", href: `${repo}/adr` },

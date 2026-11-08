@@ -1,13 +1,12 @@
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Contours from "@/components/Contours";
-import { ArrowIcon, DataIcon, FileIcon, MapIcon, OfflineIcon } from "@/components/Icons";
-import { about, documents, members, project, sprints, stats, tech } from "@/lib/data";
+import { ArrowIcon, DataIcon, MapIcon, OfflineIcon } from "@/components/Icons";
+import Docs from "@/components/Docs";
+import { about, documents, members, minutes, project, sprints, stats, tech } from "@/lib/data";
 
 const icons = [MapIcon, OfflineIcon, DataIcon];
 const initials = (n: string) => n.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
-
-const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Home() {
   return (
@@ -64,19 +63,7 @@ export default function Home() {
         </Section>
 
         <Section id="dokumenty" title="Dokumenty" lead="Zápisnice, retrospektívy, metodiky a dokumentácia na jednom mieste.">
-          <div className="grid">
-            {documents.map((d) => (
-              <a key={d.title} href={d.href.startsWith("http") ? d.href : `${base}${d.href}`} className="card doc" target={d.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
-                <div className="doc-top">
-                  <div className="ico"><FileIcon /></div>
-                  <span className="tag mute">{d.type}</span>
-                </div>
-                <h3>{d.title}</h3>
-                <p>{d.text}</p>
-                <span className="go"><ArrowIcon /></span>
-              </a>
-            ))}
-          </div>
+          <Docs documents={documents} minutes={minutes} />
         </Section>
 
         <Section id="sprinty" title="Šprinty" alt>
